@@ -6,6 +6,7 @@ import gnochis from '../../assets/gnochis.jpg';
 import canelones from '../../assets/canelones2.jpg';
 import sorrentinos from '../../assets/sorrentinos.webp';
 import ravioles from '../../assets/ravioles.jpg';
+import AboutUs from "../../components/AboutUs/AboutUs";
 
 const Home = () => {
   const productsData = [
@@ -54,6 +55,7 @@ const Home = () => {
     </div>
     
     <Cards products={productsData} />
+    <AboutUs />
   </div>
   )
 }

@@ -1,0 +1,28 @@
+.aboutContainer {
+    /* max-width: 93%; */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #9A705B;
+    /* border-radius: 8px; */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .aboutContainer h1 {
+    
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-family: "Cinzel", serif;
+  }
+  
+  .aboutContainer p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: white;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+  }
