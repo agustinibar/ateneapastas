@@ -21,7 +21,7 @@ const productsData = [
     description: "Rellenos de una mezcla sabrosa de acelga, ricota y hierbas aromáticas. Su relleno fresco y saludable les otorga un sabor distintivo y una textura tierna. Se sirven con una variedad de salsas. Se cocinan 4 a 5 minutos a fuego suave. Se echan en la olla por plancha entera sin separar, con agua en punto de ebullición. Cuando el agua hierve nuevamente bajar el fuego. Se deben colar.",
     imageUrl: ravioles,
     isActive: true,
-    price:"$1.500 x docena"
+    price:"$3.350 x 8 unidades"
   },
   {
     id: 3,
@@ -33,11 +33,11 @@ const productsData = [
   },
   {
     id: 4,
-    name: "Sorrentinos",
+    name: "Sorrentinos j & q",
     description: "De mayor tamaño y forma circular. Están rellenos con una mezcla cremosa de jamón y queso, lo que les otorga un sabor reconfortante y delicioso. Se suelen acompañar con salsas cremosas. Se cocinan de 5 a 6 minutos, fuego suave. Se echan en la olla, cuando el agua hierve, se baja el fuego y se cuentan 5 minutos por reloj manteniendo la olla destapada y cuidando que el agua no levante hervor nuevamente. Se retiran con espumadera y se recomienda servir en plato. Si están congelados el procedimiento es el mismo pero el lapso de cocción es de 8 a 9 minutos.",
     imageUrl: sorrentinos,
     isActive: true,
-    price:"$1.500 x docena"
+    price:"$2.650 x 8 unidades"
   },
   {
     id: 5,
@@ -45,7 +45,7 @@ const productsData = [
     description: "Tubos de pasta rellenos de una mezcla sabrosa de verduras cocidas, como acelgas, cebollas, y zanahorias, junto con una cremosa salsa bechamel. Están listos para calentar y servir. Se calientan 3 minutos en el microondas en la misma bandeja. En horno, se pueden calentar 10 minutos en una fuente, siempre junto a la salsa y el queso para gratinar.",
     imageUrl: canelones,
     isActive: true,
-    price:"$1.500 x docena"
+    price:"$3.350 x porcion"
   },
 ];
 const Catalogo = () => {
