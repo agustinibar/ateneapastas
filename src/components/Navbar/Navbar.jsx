@@ -7,7 +7,8 @@ const Navbar = () => {
       <span className={styles.brand}>Atenea</span>
     </div>
     <div className={styles.right}>
-      <input type="text" placeholder="Buscar tu pasta favorita" className={styles.search} />
+      {/* <input type="text" placeholder="Buscar tu pasta favorita" className={styles.search} /> */}
+      <button className={styles.catalogo}>Mira nuestro catalogo!</button>
     </div>
   </nav>
   )
