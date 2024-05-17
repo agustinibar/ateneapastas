@@ -5,6 +5,7 @@ import canelones from '../../assets/canelones2.jpg';
 import sorrentinos from '../../assets/sorrentinos.webp';
 import ravioles from '../../assets/ravioles.jpg';
 import { useState } from "react";
+import Cart from "../../components/Cart/Cart";
 
 const productsData = [
   {
@@ -58,31 +59,36 @@ const Catalogo = () => {
       setFlippedCards([...flippedCards, productId]);
     }
   };
+
   return (
     <>
-        <Navbar/>
-      <h3 className={styles.tittle}>Catalogo</h3>
+      <Navbar />
+      <h3 className={styles.title}>Catalogo</h3>
       <div className={styles.catalogoContainer}>
-        {productsData.map(product => (
-          <div className={`${styles.card} ${flippedCards.includes(product.id) ? styles.flipped : ''}`} key={product.id} onClick={() => handleCardClick(product.id)}>
-            <div className={styles.cardInner}>
-              <div className={styles.cardFront}>
-                <img src={product.imageUrl} alt={product.name} className={styles.image} />
-                <div className={styles.details}>
-                  <h3 className={styles.name}>{product.name}</h3>
+        <div className={styles.cartContainer}>
+          <Cart />
+        </div>
+        <div className={styles.cardsContainer}>
+          {productsData.map(product => (
+            <div className={`${styles.card} ${flippedCards.includes(product.id) ? styles.flipped : ''}`} key={product.id} onClick={() => handleCardClick(product.id)}>
+              <div className={styles.cardInner}>
+                <div className={styles.cardFront}>
+                  <img src={product.imageUrl} alt={product.name} className={styles.image} />
+                  <div className={styles.details}>
+                    <h3 className={styles.name}>{product.name}</h3>
+                  </div>
+                </div>
+                <div className={styles.cardBack}>
+                  <p className={styles.price}>{product.price}</p>
+                  <p>{product.description}</p>
                 </div>
               </div>
-              <div className={styles.cardBack}>
-                <p className={styles.price}>{product.price}</p>
-                <p>{product.description}</p>
-                {/* Precio u otra información adicional */}
-              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </>
-  )
+  );
 }
 
 export default Catalogo;
