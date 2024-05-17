@@ -51,6 +51,7 @@ const productsData = [
 ];
 const Catalogo = () => {
   const [flippedCards, setFlippedCards] = useState([]);
+  const [selectedProducts, setSelectedProduct] = useState([]);
 
   const handleCardClick = (productId) => {
     if (flippedCards.includes(productId)) {
@@ -60,13 +61,21 @@ const Catalogo = () => {
     }
   };
 
+  const addProduct = (e, product)=>{
+    e.stopPropagation();
+    setSelectedProduct([...selectedProducts, product])
+  }
+
+  const removeProduct = (productId)=>{
+    setSelectedProduct(selectedProducts.filter(product => product.id !== productId))
+  }
   return (
     <>
       <Navbar />
       <h3 className={styles.title}>Catalogo</h3>
       <div className={styles.catalogoContainer}>
         <div className={styles.cartContainer}>
-          <Cart />
+          <Cart selectedProducts={selectedProducts} removeProduct={removeProduct}/>
         </div>
         <div className={styles.cardsContainer}>
           {productsData.map(product => (
@@ -76,6 +85,8 @@ const Catalogo = () => {
                   <img src={product.imageUrl} alt={product.name} className={styles.image} />
                   <div className={styles.details}>
                     <h3 className={styles.name}>{product.name}</h3>
+                    <button onClick={(e) => addProduct(e, product)}>Agregar al Carrito</button>
+                    <button onClick={() => handleCardClick(product.id)}>Ver detalles</button>
                   </div>
                 </div>
                 <div className={styles.cardBack}>
