@@ -63,6 +63,6 @@ const Cart = ({ selectedProducts, removeProduct }) => {
         <button onClick={applyDiscount}>Aplicar Descuento</button>
       </div>
     )
-  } 
+  }
 
 export default Cart;
