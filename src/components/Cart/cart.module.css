@@ -43,3 +43,12 @@
 .mercadoPagoButton:hover {
   background-color: #007bb8; 
 }
+
+.consultasWhat{
+  background-color: #18C550;
+  margin-top: 20px;
+}
+
+.consultasWhat:hover{
+  background-color: #187235e5;
+}

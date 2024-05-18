@@ -66,6 +66,16 @@ const Cart = ({ selectedProducts, removeProduct }) => {
     
     };
     
+    const handlePagoWhatsapp = ()=>{
+      const productDetails = groupedProducts.map(product=> (`${product.quantity} x ${product.name} / ${product.price}`)).join(', ');
+
+      const message = `Hola, me gustaría comprar los siguientes productos:  ${productDetails}. Por un total con descuento de: $${discountedTotal.toLocaleString()} ARS.`
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappUrl = `https://wa.me/5493487729882?text=${encodedMessage}`
+
+      window.open(whatsappUrl, 'blank')
+    };
+
     return (
       <div className={styles.cartContainer}>
         <h3>Carrito de Compras</h3>
@@ -99,6 +109,7 @@ const Cart = ({ selectedProducts, removeProduct }) => {
         ): (
           <button onClick={handleMercadoPago} className={styles.mercadoPagoButton}>Pagar con Mercado Pago</button>
         )}
+         <button onClick={handlePagoWhatsapp} className={styles.consultasWhat}>Consultar mas metodos de pago</button>
       </div>
     )
   }
