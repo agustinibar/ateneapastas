@@ -34,3 +34,12 @@
     box-sizing: border-box;
   }
   
+  
+.mercadoPagoButton {
+  background-color: #009EE3; 
+  margin-top: 20px; 
+}
+
+.mercadoPagoButton:hover {
+  background-color: #007bb8; 
+}
