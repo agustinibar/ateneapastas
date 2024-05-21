@@ -40,10 +40,10 @@ const Cart = ({ selectedProducts, removeProduct }) => {
     }, []);
     
     const total = groupedProducts.reduce((sum, product) => {
-      const priceNumber = parseInt(product.price.replace(/[^0-9]+/g, ''));
-      return sum + (priceNumber * product.quantity);
+      return sum + (product.price * product.quantity);
     }, 0);
-  
+    
+    
     const discountedTotal = total * (1 - discount);
 
     initMercadoPago(`${publicKey}`);
