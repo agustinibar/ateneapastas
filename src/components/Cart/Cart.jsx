@@ -1,14 +1,21 @@
 import styles from './cart.module.css';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Wallet, initMercadoPago } from '@mercadopago/sdk-react';
 import axios from 'axios';
+
+const publicKey = import.meta.env.VITE_PUBLIC_KEY;
 
 const Cart = ({ selectedProducts, removeProduct }) => {
     const [discountCode, setDiscountCode] = useState('');
     const [discount, setDiscount] = useState(0);
     const [preferenceId, setPreferenceId] = useState(null);
 
+    useEffect(() => {
+      if (publicKey) {
+          initMercadoPago(publicKey);
+      }
+  }, []);
     
     const handleDiscountChange = (e) => {
       setDiscountCode(e.target.value);
@@ -16,7 +23,7 @@ const Cart = ({ selectedProducts, removeProduct }) => {
     
     const applyDiscount = () => {
       if (discountCode === "ATENEALOVERS") {
-        setDiscount(0.3);
+        setDiscount(0.9);
       } else {
         setDiscount(0);
       }
@@ -38,8 +45,8 @@ const Cart = ({ selectedProducts, removeProduct }) => {
     }, 0);
   
     const discountedTotal = total * (1 - discount);
-    
-    initMercadoPago("TEST-b1609369-11aa-4417-ac56-d07ef28cfcff");
+
+    initMercadoPago(publicKey);
 
     const createPreference = async()=>{
       try {

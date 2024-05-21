@@ -65,6 +65,7 @@
   border-radius: 8px 8px 0 0;
 }
 
+
 .details {
   text-align: left;
 }
@@ -99,4 +100,13 @@ button {
 
 button:hover {
   background-color: #45a049;
+}
+
+/* Estilos para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+  .catalogoContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
 }
