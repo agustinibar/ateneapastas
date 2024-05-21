@@ -22,7 +22,7 @@ const Cart = ({ selectedProducts, removeProduct }) => {
     }
     
     const applyDiscount = () => {
-      if (discountCode === "https://ateneapastas.netlify.app/catalogo") {
+      if (discountCode === "PASTALOVERS") {
         setDiscount(0.3);
       } else {
         setDiscount(0);
