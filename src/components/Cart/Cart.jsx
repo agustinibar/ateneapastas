@@ -46,7 +46,7 @@ const Cart = ({ selectedProducts, removeProduct }) => {
   
     const discountedTotal = total * (1 - discount);
 
-    initMercadoPago(publicKey);
+    initMercadoPago(`${publicKey}`);
 
     const createPreference = async()=>{
       try {
