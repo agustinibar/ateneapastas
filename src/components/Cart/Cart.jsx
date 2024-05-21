@@ -51,11 +51,11 @@ const Cart = ({ selectedProducts, removeProduct }) => {
     const createPreference = async()=>{
       try {
         const response = await axios.post(`https://apimercadopago.onrender.com/createorder`, {
-          description: `${groupedProducts}`,
-          price: `${discountedTotal}`,
-          quantity: `1`,
-          currency_id: "ARS",
-        });
+          description: groupedProducts.map(product => `${product.quantity} x ${product.name}`).join(', '),
+          price: discountedTotal.toFixed(2),
+          quantity: 1,
+          currency_id: "ARS"
+      });
   
         const { id } = response.data;
         return id;
