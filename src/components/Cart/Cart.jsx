@@ -10,7 +10,7 @@ const Cart = ({ selectedProducts, removeProduct }) => {
     const [discountCode, setDiscountCode] = useState('');
     const [discount, setDiscount] = useState(0);
     const [preferenceId, setPreferenceId] = useState(null);
-
+    const [loading, setLoading] = useState(false)
     useEffect(() => {
       if (publicKey) {
           initMercadoPago(publicKey);
@@ -22,8 +22,8 @@ const Cart = ({ selectedProducts, removeProduct }) => {
     }
     
     const applyDiscount = () => {
-      if (discountCode === "ATENEALOVERS") {
-        setDiscount(0.9);
+      if (discountCode === "https://ateneapastas.netlify.app/catalogo") {
+        setDiscount(0.3);
       } else {
         setDiscount(0);
       }
@@ -49,6 +49,7 @@ const Cart = ({ selectedProducts, removeProduct }) => {
     initMercadoPago(`${publicKey}`);
 
     const createPreference = async()=>{
+      setLoading(true);
       try {
         const response = await axios.post(`https://apimercadopago.onrender.com/createorder`, {
           description: groupedProducts.map(product => `${product.quantity} x ${product.name}`).join(', '),
@@ -58,9 +59,11 @@ const Cart = ({ selectedProducts, removeProduct }) => {
       });
   
         const { id } = response.data;
+        setLoading(false);
         return id;
       } catch (error) {
-        alert("algo salio mal con el pago");
+        setLoading(false);
+        alert("Algo salio mal con mercado pago, por favor, escribenos por Whatsapp: +54 3487 729882");
         console.log(error)
       }
     };
