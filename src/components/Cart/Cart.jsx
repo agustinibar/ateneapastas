@@ -1,5 +1,5 @@
 import styles from './cart.module.css';
-
+import Skeleton from 'react-loading-skeleton';
 import { useEffect, useState } from 'react';
 import { Wallet, initMercadoPago } from '@mercadopago/sdk-react';
 import axios from 'axios';
@@ -114,9 +114,12 @@ const Cart = ({ selectedProducts, removeProduct }) => {
           {discount > 0 && <p>Descuento aplicado: -{(discount * 100).toFixed(0)}%</p>}
           <p>Total con Descuento: ${discountedTotal.toLocaleString()}</p>
 
-        { preferenceId ? (
+          {loading ? (
+          // Mostrar un esqueleto o un botón de carga mientras se realiza la solicitud
+          <Skeleton width={200} height={40} />
+        ) : preferenceId ? (
           <Wallet initialization={ {preferenceId: preferenceId} }/>
-        ): (
+        ) : (
           <button onClick={handleMercadoPago} className={styles.mercadoPagoButton}>Pagar con Mercado Pago</button>
         )}
          <button onClick={handlePagoWhatsapp} className={styles.consultasWhat}>Consultar mas metodos de pago</button>
